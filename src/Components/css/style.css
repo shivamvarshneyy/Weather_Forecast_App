@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Atkinson Hyperlegible Next", serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #121212; /* Dark cult-classic theme */
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Box Container */
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0.5rem 2rem rgba(255, 255, 255, 0.1);
+    height: 60vh;
+    width: 30vw;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #222 10%, #333 100%);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    min-width: 22rem;
+    min-height: 40rem;
+    transition: all 0.3s ease-in-out;
+    animation: fadeIn 1s ease-in-out, floating 3s infinite alternate;
+}
+
+/* Subtle Hover Effect */
+.box:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.02);
+}
+
+/* Input Field */
+.box input {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3rem;
+    line-height: 2.3rem;
+    width: 90%;
+    padding: 1rem;
+    background: #181818;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.box input:focus {
+    border-color: #0ecfaf;
+    box-shadow: 0 0 15px rgba(0, 255, 234, 0.7);
+}
+
+/* Button */
+.box button {
+    margin-top: 1.5rem;
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    background: #60ec20;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(98, 253, 78, 0.625);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.box button:hover {
+    background: #5ae92b;
+    box-shadow: 0 0 20px rgba(7, 239, 73, 0.8);
+    transform: scale(1.05);
+}
+
+/* Centered Content */
+.content {
+    text-align: center;
+    margin-top: 4rem; /* Space below input */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.box .info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #ffffff;
+}
+.box .info .location{
+    color: rgb(145, 237, 207);
+    font-size: 2rem;
+}
+/* Wave Effect */
+.wave {
+    opacity: 0.3;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    width: 50rem;
+    height: 50rem;
+    margin-left: -25rem;
+    margin-top: -20rem;
+    transform-origin: 50% 48%;
+    border-radius: 43%;
+    animation: drift 10s infinite linear;
+    z-index: 1;
+}
+
+.wave.-three {
+    animation: drift 15s infinite linear;
+    z-index: 2 !important;
+    opacity: 0.2;
+}
+
+.wave.-two {
+    animation: drift 20s infinite linear;
+    z-index: 3 !important;
+    opacity: 0.1;
+}
+
+/* Smooth Rotation */
+@keyframes drift {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Fade-In Effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Floating Effect */
+@keyframes floating {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .box {
+        width: 40vw;
+        min-height: 38rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .box {
+        width: 60vw;
+        min-height: 36rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .box {
+        width: 85vw;
+        min-height: 34rem;
+        padding: 1.5rem;
+    }
+
+    .box input {
+        font-size: 0.9rem;
+    }
+}
+
+.errorMsg {
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 2rem;
+    font-weight: bold;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Error message responsiveness */
+@media (max-width: 1024px) {
+    .errorMsg {
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .errorMsg {
+        font-size: 1rem;
+        margin-top: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .errorMsg {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+}
