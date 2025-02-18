@@ -6,22 +6,14 @@ const Tempapp = () => {
     const [city, setCity] = useState(null);
 
     useEffect(()=>{
-        const newAPI = async() => {
-            const url = `http://api.openweathermap.org/geo/1.0/direct?q=${search}&limit=1&appid=5f7278a73fe141eb43231e42dd35541c`;
-            const res = await fetch(url);
-            const resJSON = await res.json();
-            const lon = resJSON[0].lon;
-            const lat = resJSON[0].lat;
-            FetchAPI(lon,lat);
-        }
         const FetchAPI = async(lon,lat) => {
-            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=5f7278a73fe141eb43231e42dd35541c`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=5f7278a73fe141eb43231e42dd35541c`;
             const response = await fetch(url);
             const resJson = await response.json();
             setCity(resJson.main);
         };
 
-    newAPI();   
+    FetchAPI();   
     },[search]);
     const inputEvent = (event) => {
         setSearch(event.target.value);
